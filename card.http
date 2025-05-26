@@ -1,0 +1,76 @@
+@local=http://localhost:3000/cards
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODJiMTU4MTIwMjJjYzY1NDc2MDczOWEiLCJpc0J1c2luZXNzIjpmYWxzZSwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzQ3NjU4NjgyfQ.vnfui11O_id9LUa3WUnVFOHWMvv3jx6oS_n44j3i9b4
+
+POST {{local}}
+Content-Type: application/json
+x-auth-token:{{token}}
+
+{
+  "title": "dubi shamen",
+  "subtitle": "a test ",
+  "description": "a test value for new card test value for new card",
+  "phone": "012-3211234",
+  "email": "qwe@gmail.com",
+  "web": "www://bing.com",
+  "image": {
+    "url": "",
+    "alt": "image of something"
+  },
+  "address": {
+    "state": "IL",
+    "country": "Israel",
+    "city": "Arad",
+    "street": "Shoham",
+    "houseNumber": 5,
+    "zip": 23
+  }
+}
+
+### get all cards
+GET {{local}}
+
+### get my-card
+GET {{local}}/my-cards
+x-auth-token: {{token}}
+
+###  get card by id
+GET {{local}}/682af78b811ed191d3900783
+x-auth-token: {{token}}
+
+###
+PUT {{local}}/682a089a16b0e1d58c9c98da
+x-auth-token: {{token}}
+Content-Type: application/json
+
+{
+  "title": "a wonderful day will come",
+  "subtitle": "a test ",
+  "description": "a test value for new card test value for new card",
+  "phone": "0545556788",
+  "email": "qwe@gmail.com",
+  "web": "www://bing.com",
+  "image": {
+    "url": "https://img.izismile.com/img/img13/20201030/640/you_have_never_seen_something_like_this_640_36.jpg",
+    "alt": "image of something"
+  },
+  "address": {
+    "state": "IL",
+    "country": "Israel",
+    "city": "Arad",
+    "street": "Shoham",
+    "houseNumber": 5,
+    "zip": 23
+  }
+}
+
+PATCH {{local}}/682af78b811ed191d3900783
+x-auth-token: {{token}}
+
+###
+DELETE {{local}}/682b277e505711974c9ea1c4
+x-auth-token:{{token}}
+
+###
+PATCH {{local}}/682c9f07575f50a0fa89cfff/111
+x-auth-token: {{token}}
+

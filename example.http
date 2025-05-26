@@ -1,0 +1,82 @@
+@local=http://localhost:3000
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODJiMTU4MTIwMjJjYzY1NDc2MDczOWEiLCJpc0J1c2luZXNzIjpmYWxzZSwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzQ3NjU3NDAzfQ.mGAq9TXW08qkYlV2nNcUGfSnGlcBGXAlTz6BGqRUEVg
+
+### create user
+POST {{local}}/users
+Content-Type: application/json
+
+{
+    "name": {
+        "first":"Bobi",
+        "middle": "",
+        "last":"marli"
+    },
+    "phone":"05455590111",
+    "email":"Bob11@.bobi.com",
+    "password": "Bobabanay12345!",
+    "image":{
+      "url":"",
+      "alt":""
+    },
+    "address":{
+        "country":"israel",
+        "city":"tel-aviv",
+        "street":"dizingoff",
+        "houseNumber": 4
+    },
+    "isBusiness":true
+    
+}
+
+### login
+POST {{local}}/users/login
+Content-Type: application/json
+
+{
+    "email":"lady@lady.com",
+    "password":"Lady123456!"
+}
+
+### get all users
+GET {{local}}/users
+x-auth-token: {{token}}
+
+
+### get user by id
+GET  {{local}}/users/682b15812022cc6547607398
+x-auth-token: {{token}}
+
+
+### edit user 
+PUT {{local}}/users/6820bc6e77ff50dd91d1cdc5
+Content-Type: application/json
+x-auth-token: {{token}}
+
+{
+  "name": {
+    "first": "eden",
+    "last": "kalderon"
+  },
+  "address": {
+    "country": "israel",
+    "city": "rishon-le-zion",
+    "street": "shlomo-pomorovski",
+    "houseNumber": 4
+  },
+  "_id": "6820bc6e77ff50dd91d1cdc5",
+  "phone": "0545559002",
+  "email": "mom@smom.com",
+  "password": "$2b$14$xTLgO4d4g8tpKDwj1IOIZufei5N7idu0NS0vJOAm1oyzdB.KWxTo6",
+  "isBusiness": true,
+  "__v": 0
+}
+
+
+### change user status
+PATCH  {{local}}/users/682216f08d4f334d0f2ccfe4
+x-auth-token: {{token}}
+
+
+### delete user
+DELETE  {{local}}/users/682724ba0ea0b68a419a0543
+x-auth-token: {{token}}
