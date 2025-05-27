@@ -46,6 +46,8 @@ const users = [
     },
     isBusiness: true,
     isAdmin: false,
+    blockDate: new Date(),
+    loginHits: 0,
   },
   {
     name: {
@@ -141,9 +143,7 @@ const cards = [
 ];
 
 async function initialUsers() {
-  if (await User.exists({})) {
-    return;
-  }
+  await User.deleteMany();
 
   users.forEach(async (user) => {
     await new User({
@@ -154,9 +154,7 @@ async function initialUsers() {
 }
 
 async function initialCards() {
-  if (await Card.exists({})) {
-    return;
-  }
+  await Card.deleteMany();
   cards.forEach(async (card) => {
     await new Card(card).save();
   });

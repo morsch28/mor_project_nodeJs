@@ -7,13 +7,13 @@ Content-Type: application/json
 
 {
     "name": {
-        "first":"Bobi",
+        "first":"Mor",
         "middle": "",
-        "last":"marli"
+        "last":"Schneider"
     },
     "phone":"05455590111",
-    "email":"Bob11@.bobi.com",
-    "password": "Bobabanay12345!",
+    "email":"mor@mor.com",
+    "password": "Mor123456!",
     "image":{
       "url":"",
       "alt":""
@@ -34,7 +34,7 @@ Content-Type: application/json
 
 {
     "email":"lady@lady.com",
-    "password":"Lady123456!"
+    "password":"K12345678!"
 }
 
 ### get all users

@@ -1,1 +1,10 @@
+
+# Logs
+logs
+*.log
+
+.npm
+node_modules/
+
 .env
+.env.production

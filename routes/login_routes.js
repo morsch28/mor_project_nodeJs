@@ -19,12 +19,21 @@ router.post("/", async (req, res) => {
       return;
     }
 
+    if (new Date() - new Date(user.blockDate) < 86400000) {
+      res.status(403).send("you can't login for 24 hours");
+    }
     const validPassword = await bcrypt.compare(
       req.body.password,
       user.password
     );
 
     if (!validPassword) {
+      user.loginHits++;
+      if (user.loginHits == 3) {
+        user.loginHits = 0;
+        user.blockDate = new Date();
+      }
+      user.save();
       res.status(400).send("Invalid password");
       return;
     }
